@@ -5,7 +5,7 @@
 - `DataReaderListener::on_data_available`：异步事件驱动。DDS 内部线程发现数据后主动回调你的代码。
 - `WaitSet::wait`：阻塞等待。业务线程主动睡眠，直到 DDS 状态条件被触发后再处理数据。
 
-消息类型在 [idl/HelloWorld.idl](/Users/yuhao/Documents/New%20project%203/idl/HelloWorld.idl) 中定义，`fastddsgen` 会在构建时生成序列化和类型支持代码。
+消息类型在 [idl/HelloWorld.idl](idl/HelloWorld.idl) 中定义，`fastddsgen` 会在构建时生成序列化和类型支持代码。
 
 ## 1. 准备依赖
 
@@ -51,7 +51,7 @@ LISTENER_SUB index=2 message="hello from Fast DDS"
 ...
 ```
 
-关键代码在 [src/dds_demo.cpp](/Users/yuhao/Documents/New%20project%203/src/dds_demo.cpp) 的 `ListenerSubscriber::on_data_available`。
+关键代码在 [src/dds_demo.cpp](src/dds_demo.cpp) 的 `ListenerSubscriber::on_data_available`。
 
 ## 4. 运行 WaitSet 模式
 
@@ -69,7 +69,7 @@ LISTENER_SUB index=2 message="hello from Fast DDS"
 
 订阅端会阻塞在 `wait_set.wait(...)`。当 DDS 的 `data_available` 状态触发后，代码再调用 `take_next_sample` 取数据。
 
-关键代码在 [src/dds_demo.cpp](/Users/yuhao/Documents/New%20project%203/src/dds_demo.cpp) 的 `run_waitset_subscriber`。
+关键代码在 [src/dds_demo.cpp](src/dds_demo.cpp) 的 `run_waitset_subscriber`。
 
 ## 5. pytest 自动化测试
 
@@ -79,7 +79,7 @@ LISTENER_SUB index=2 message="hello from Fast DDS"
 python3 -m pytest -q
 ```
 
-测试逻辑在 [tests/test_dds_demo.py](/Users/yuhao/Documents/New%20project%203/tests/test_dds_demo.py)：
+测试逻辑在 [tests/test_dds_demo.py](tests/test_dds_demo.py)：
 
 - 先启动订阅者进程。
 - 再启动发布者进程。
