@@ -18,7 +18,7 @@
 - Fast DDS-Gen，也就是 `fastddsgen`
 - pytest
 
-当前这台机器已经有 CMake，但没有检测到 Fast DDS、Fast CDR、`fastddsgen` 和 pytest，所以本机暂时不能完成真实 DDS 运行。你在公司开发机或装好 Fast DDS Suite 后可以直接用下面命令。
+当前这台机器已经有 CMake，pytest 可通过 `python3 -m pytest` 使用；但没有检测到 Fast DDS、Fast CDR 和 `fastddsgen`，所以本机暂时不能完成真实 DDS 编译和运行。你在公司开发机或装好 Fast DDS Suite 后可以直接用下面命令。
 
 ## 2. 编译
 
