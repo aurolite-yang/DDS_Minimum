@@ -18,7 +18,11 @@
 - Fast DDS-Gen，也就是 `fastddsgen`
 - pytest
 
-当前这台机器已经有 CMake，pytest 可通过 `python3 -m pytest` 使用；但没有检测到 Fast DDS、Fast CDR 和 `fastddsgen`，所以本机暂时不能完成真实 DDS 编译和运行。你在公司开发机或装好 Fast DDS Suite 后可以直接用下面命令。
+当前这台机器已在用户目录安装 Fast DDS 环境：`/Users/yuhao/Documents/Codex/FastDDS/install`。每次新开终端后，先执行下面命令加载环境变量，然后再编译和运行：
+
+```bash
+source /Users/yuhao/Documents/Codex/FastDDS/install/setup_fastdds.zsh
+```
 
 ## 2. 编译
 

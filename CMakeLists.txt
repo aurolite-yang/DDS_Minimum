@@ -24,7 +24,6 @@ set(IDL_FILE ${CMAKE_CURRENT_SOURCE_DIR}/idl/HelloWorld.idl)
 set(GENERATED_DIR ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
 set(GENERATED_SOURCES
-    ${GENERATED_DIR}/HelloWorld.cxx
     ${GENERATED_DIR}/HelloWorldPubSubTypes.cxx
     ${GENERATED_DIR}/HelloWorldTypeObjectSupport.cxx
 )
@@ -40,7 +39,7 @@ set(GENERATED_HEADERS
 add_custom_command(
     OUTPUT ${GENERATED_SOURCES} ${GENERATED_HEADERS}
     COMMAND ${CMAKE_COMMAND} -E make_directory ${GENERATED_DIR}
-    COMMAND ${FASTDDSGEN_EXECUTABLE} -replace -typeobject -d ${GENERATED_DIR} ${IDL_FILE}
+    COMMAND ${FASTDDSGEN_EXECUTABLE} -replace -d ${GENERATED_DIR} ${IDL_FILE}
     DEPENDS ${IDL_FILE}
     VERBATIM
 )

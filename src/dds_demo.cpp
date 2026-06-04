@@ -13,7 +13,7 @@
 #include <fastdds/dds/core/condition/Condition.hpp>
 #include <fastdds/dds/core/condition/StatusCondition.hpp>
 #include <fastdds/dds/core/condition/WaitSet.hpp>
-#include <fastdds/dds/core/Duration_t.hpp>
+#include <fastdds/dds/core/Time_t.hpp>
 #include <fastdds/dds/core/status/PublicationMatchedStatus.hpp>
 #include <fastdds/dds/core/status/SubscriptionMatchedStatus.hpp>
 #include <fastdds/dds/domain/DomainParticipant.hpp>
@@ -306,7 +306,10 @@ int run_waitset_subscriber(
     DataReader* reader = create_reader(dds, subscriber, nullptr);
 
     auto& condition = reader->get_statuscondition();
-    condition.set_enabled_statuses(StatusMask::subscription_matched() | StatusMask::data_available());
+    StatusMask wait_mask;
+    wait_mask << StatusMask::subscription_matched();
+    wait_mask << StatusMask::data_available();
+    condition.set_enabled_statuses(wait_mask);
 
     WaitSet wait_set;
     wait_set.attach_condition(condition);
