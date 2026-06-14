@@ -4,3 +4,6 @@ CMakeFiles/
 .pytest_cache/
 __pycache__/
 tests/__pycache__/
+.DS_Store
+allure-results/
+allure-report/

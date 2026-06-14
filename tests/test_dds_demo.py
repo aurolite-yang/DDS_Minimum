@@ -51,12 +51,12 @@ def run_pub_sub_pair(mode):
 
     return publisher.returncode, publisher.stdout, subscriber.returncode, sub_output
 
-
+# 通过装饰器实现参数化测试，分别测试两种订阅模式：sub-listener和sub-waitset
 @pytest.mark.parametrize(
     ("mode", "marker"),
     [
         ("sub-listener", "LISTENER_SUB index=3"),
-        ("sub-waitset", "WAITSET_SUB index=3"),
+        ("sub-waitset", "WAITSET_SUB index=6"),
     ],
 )
 def test_pub_sub_receives_three_samples(mode, marker):

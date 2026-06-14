@@ -83,6 +83,32 @@ LISTENER_SUB index=2 message="hello from Fast DDS"
 python3 -m pytest -q
 ```
 
+如果要生成 Allure 报告，需要先安装 pytest 插件和 Allure CLI：
+
+```bash
+python3 -m pip install allure-pytest
+brew install allure
+```
+
+生成 Allure 原始结果：
+
+```bash
+python3 -m pytest -q --alluredir=allure-results
+```
+
+临时生成报告并自动打开浏览器：
+
+```bash
+allure serve allure-results
+```
+
+如果想生成可重复打开的静态报告目录：
+
+```bash
+allure generate allure-results -o allure-report --clean
+allure open allure-report
+```
+
 测试逻辑在 [tests/test_dds_demo.py](tests/test_dds_demo.py)：
 
 - 先启动订阅者进程。
